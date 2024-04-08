@@ -1,0 +1,70 @@
+body {
+  background-color: aquamarine;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.main-card {
+  background-color: white;
+  width: 60%;
+  height: 40%;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+}
+
+.card-inputs {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.card-outputs {
+  background-color: hsl(183, 100%, 15%);
+  width: 50%;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
+
+.card-outputs button {
+  width: 50%;
+}
+
+.split-totals {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.25rem;
+  width: 100%;
+}
+
+.split-totals p {
+  color: white;
+}
