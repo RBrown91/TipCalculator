@@ -14,10 +14,18 @@
       href="./images/favicon-32x32.png"
     />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script defer src="app.js"></script>
+
     <title>Frontend Mentor | Tip calculator app</title>
   </head>
   <body>
-    <h1>Tip Split Calculator</h1>
     <main>
       <div class="main-card">
         <div class="card-inputs">
@@ -27,18 +35,28 @@
             <label for="bill"></label>
           </div>
           <div class="tip-selection">
-            <p>Select Tip jjh%</p>
+            <p>Select Tip %</p>
             <div class="button-grid">
-              <button>5%</button>
-              <button>10%</button>
-              <button>15%</button>
-              <button>20%</button>
-              <button>25%</button>
-              <button>Custom</button>
+              <button>5</button>
+              <button>10</button>
+              <button>15</button>
+              <button>20</button>
+              <button>25</button>
+              <button>50</button>
             </div>
+            <input
+              type="number"
+              name="custom"
+              id="custom"
+              placeholder="Custom"
+            />
           </div>
           <div class="patrons-input">
-            <p>Number of People</p>
+            <div class="people-error">
+              <p>Number of People</p>
+              <p id="error-display"></p>
+            </div>
+
             <label for="people"></label>
             <input type="number" id="people" name="people" />
           </div>
@@ -46,14 +64,20 @@
 
         <div class="card-outputs">
           <div class="split-totals">
-            <p>Tip Amount</p>
-            <p>$0.00</p>
+            <div class="split-totals-info">
+              <p>Tip Amount</p>
+              <p><span>(per person)</span></p>
+            </div>
+            <p id="tip-total">$0.00</p>
           </div>
           <div class="split-totals">
-            <p>Total</p>
-            <p>$0.00</p>
+            <div class="spilt-totals-info">
+              <p>Total</p>
+              <p><span>(per person)</span></p>
+            </div>
+            <p id="tip-split-total">$0.00</p>
           </div>
-          <button>Reset</button>
+          <button id="reset-button">RESET</button>
         </div>
       </div>
     </main>
