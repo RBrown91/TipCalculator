@@ -1,6 +1,10 @@
 body {
   background-color: hsl(185, 41%, 84%);
   font-family: "Space Mono";
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
 }
 
 .space-mono-regular {
@@ -43,6 +47,11 @@ main {
   height: 100vh;
 }
 
+.main h1 {
+  max-width: 4ch;
+  word-wrap: break-word;
+}
+
 .main-card {
   background-color: white;
   width: 60%;
@@ -63,6 +72,18 @@ main {
   padding: 1rem;
 }
 
+.card-inputs p {
+  font-size: 18px;
+}
+
+.card-inputs input {
+  background-color: hsl(185, 41%, 84%);
+  width: 100%;
+  border: none;
+  height: 30px;
+  border-radius: 4px;
+}
+
 .button-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -77,6 +98,7 @@ main {
   background-color: hsl(183, 100%, 15%);
   border-radius: 5px;
   font-size: 24px;
+  border: none;
 }
 
 .card-outputs {
@@ -134,7 +156,31 @@ input[type="number"] {
   font-size: 20px;
 }
 
+#reset-button:disabled {
+  opacity: 20%;
+}
+
 span {
   font-size: 12px;
   color: hsl(189, 41%, 97%);
+}
+
+@media (min-width: 320px) and (max-width: 1440px) {
+  .main-card {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+  }
+  .card-inputs {
+    width: 220px;
+    margin: 0;
+    padding: auto;
+  }
+
+  .card-outputs {
+    width: 200px;
+    margin: 0;
+    font-size: 20px;
+  }
 }

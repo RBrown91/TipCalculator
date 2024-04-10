@@ -4,12 +4,14 @@ const billInput = document.getElementById("bill");
 const numberOfPeople = document.getElementById("people");
 const tipPercentages = document.querySelectorAll("button");
 const errorDisplay = document.getElementById("error-display");
+const resetBtn = document.getElementById("reset-button");
+const customPercentage = document.getElementById("custom");
 
 let currentTipPercentage;
 
 function calculateTipSplit(bill, perc, people) {
   if (numberOfPeople.value <= 1) {
-    errorDisplay.textContent = "Can't be zero ";
+    errorDisplay.textContent = "Can't be less than 2";
     return;
   }
   const tipSplit = ((bill * perc) / 100).toFixed(2);
@@ -18,10 +20,8 @@ function calculateTipSplit(bill, perc, people) {
     parseInt(tipSplit) + parseInt(billSplit)
   ).toFixed(2);
 
-  console.log(billSplit);
-
-  tipTotalOutput.textContent = tipSplit;
-  tipSplitTotalOutput.textContent = grandTotalPerPerson;
+  tipTotalOutput.textContent = `£${tipSplit}`;
+  tipSplitTotalOutput.textContent = `£${grandTotalPerPerson}`;
   errorDisplay.textContent = "";
 }
 
@@ -31,7 +31,32 @@ tipPercentages.forEach((button) =>
     calculateTipSplit(
       billInput.value,
       currentTipPercentage,
-      numberOfPeople.value
+      numberOfPeople.value,
+      (resetBtn.disabled = false)
     );
   })
 );
+
+resetBtn.addEventListener("click", () => {
+  currentTipPercentage;
+  tipTotalOutput.textContent = "0.00";
+  tipSplitTotalOutput.textContent = "0.00";
+  errorDisplay.textContent = "";
+  billInput.value = "";
+  numberOfPeople.value = "";
+  customPercentage.value = "";
+  resetBtn.disabled = true;
+});
+
+if (billInput.value === "") {
+  resetBtn.disabled = true;
+}
+
+customPercentage.addEventListener("input", () => {
+  calculateTipSplit(
+    billInput.value,
+    customPercentage.value,
+    numberOfPeople.value,
+    (resetBtn.disabled = false)
+  );
+});
